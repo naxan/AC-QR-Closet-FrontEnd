@@ -11,7 +11,6 @@ class App extends React.Component {
 
   componentDidMount = () => {
     UserAuthAPI.verify().then((res) => {
-      console.log(res.currentUser);
       if (res.currentUser) {
         this.setState({
           user: res.currentUser.username,
@@ -25,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Routes />
+        <Routes user={this.state.user} id={this.state.id} />
       </div>
     );
   }
