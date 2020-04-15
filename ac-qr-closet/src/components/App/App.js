@@ -1,6 +1,8 @@
 import React from "react";
 import Routes from "../../config/routes";
 import UserAuthAPI from "../../api/UserAuthAPI";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 class App extends React.Component {
   state = {
@@ -24,7 +26,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Navbar loggedIn={this.state.loggedIn} />
         <Routes user={this.state.user} id={this.state.id} />
+        <Footer />
       </div>
     );
   }
