@@ -2,6 +2,7 @@ import React from "react";
 import UserInfo from "../UserInfo/UserInfo";
 import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
+import PatternAPI from "../../api/PatternAPI";
 
 // --- PROPS RECEIVED ---
 // APP:
@@ -10,6 +11,15 @@ import PatternContainer from "../../containers/PatternContainer/PatternContainer
 class Profile extends React.Component {
   state = {
     patterns: [],
+  };
+
+  getPosts = () => {
+    // PLACEHOLDER for testing!
+    PatternAPI.getAll().then((res) => console.log(res));
+  };
+
+  componentDidMount = () => {
+    this.getPosts();
   };
 
   render() {

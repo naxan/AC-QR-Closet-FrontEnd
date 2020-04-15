@@ -17,7 +17,6 @@ class Navbar extends React.Component {
 
   render() {
     const { activeItem } = this.state;
-    console.log(this.props.loggedIn);
     return (
       <div className="Navbar">
         <Menu>
