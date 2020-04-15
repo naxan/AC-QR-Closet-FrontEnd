@@ -10,6 +10,7 @@ class App extends React.Component {
     user: "",
     id: "",
     loggedIn: false,
+    dataRendered: false,
   };
 
   componentDidMount = () => {
@@ -23,6 +24,7 @@ class App extends React.Component {
           user: res.currentUser.username,
           id: res.currentUser._id,
           loggedIn: true,
+          dataRendered: true,
         });
       }
     });
@@ -42,6 +44,9 @@ class App extends React.Component {
   };
 
   render() {
+    if (!this.state.dataRendered) {
+      return null;
+    }
     return (
       <div className="App">
         <Navbar
