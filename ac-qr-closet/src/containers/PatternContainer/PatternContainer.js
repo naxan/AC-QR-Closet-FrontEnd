@@ -9,12 +9,13 @@ import Pattern from "../../components/Pattern/Pattern";
 
 class PatternContainer extends React.Component {
   render() {
-    return (
-      <div className="PatternContainer">
-        <h2>PatternContainer</h2>
-        <Pattern />
-      </div>
-    );
+    let patternsToRender;
+    if (this.props.patterns.length > 0) {
+      patternsToRender = this.props.patterns.map((pattern) => {
+        return <Pattern pattern={pattern} key={pattern._id} />;
+      });
+    }
+    return <div className="PatternContainer">{patternsToRender}</div>;
   }
 }
 
