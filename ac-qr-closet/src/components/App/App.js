@@ -3,7 +3,6 @@ import Routes from "../../config/routes";
 import UserAuthAPI from "../../api/UserAuthAPI";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
 class App extends React.Component {
@@ -45,7 +44,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Button onClick={this.handleLogout}>Logout Test</Button>
         <Navbar
           loggedIn={this.state.loggedIn}
           verifyUser={this.verifyUser}

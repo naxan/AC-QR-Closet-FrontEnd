@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Form, Button } from "semantic-ui-react";
+import { Modal, Form, Menu } from "semantic-ui-react";
 import UserAuthAPI from "../../../api/UserAuthAPI";
 
 // --- PROPS RECEIVED ---
@@ -46,7 +46,7 @@ class Login extends React.Component {
         <Modal
           open={this.state.showModal}
           onClose={this.toggleModal}
-          trigger={<Button onClick={this.toggleModal}>Login</Button>}
+          trigger={<Menu.Item onClick={this.toggleModal}>Login</Menu.Item>}
           closeIcon
         >
           <Modal.Header>Login</Modal.Header>
