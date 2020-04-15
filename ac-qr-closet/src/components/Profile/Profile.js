@@ -2,7 +2,6 @@ import React from "react";
 import UserInfo from "../UserInfo/UserInfo";
 import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
-import PatternAPI from "../../api/PatternAPI";
 import UserAPI from "../../api/UserAPI";
 
 // --- PROPS RECEIVED ---
@@ -12,15 +11,15 @@ import UserAPI from "../../api/UserAPI";
 class Profile extends React.Component {
   state = {
     patterns: [],
+    dataRendered: false,
   };
 
   getPosts = () => {
-    // PLACEHOLDER for testing!
-    PatternAPI.getAll().then((res) => console.log(res));
-
-    console.log(this.props.id);
     UserAPI.getOne(this.props.id).then((res) =>
-      console.log("patterns", res.createdPatterns)
+      this.setState({
+        patterns: res.createdPatterns,
+        dataRendered: true,
+      })
     );
   };
 
@@ -29,6 +28,9 @@ class Profile extends React.Component {
   };
 
   render() {
+    if (!this.state.dataRendered) {
+      return null;
+    }
     return (
       <div className="Profile">
         <h1>Profile</h1>
