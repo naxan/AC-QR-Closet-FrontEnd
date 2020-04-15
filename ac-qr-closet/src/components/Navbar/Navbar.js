@@ -51,7 +51,6 @@ class Navbar extends React.Component {
             )}
           </Menu.Menu>
         </Menu>
-        <h1>Navbar</h1>
       </div>
     );
   }
