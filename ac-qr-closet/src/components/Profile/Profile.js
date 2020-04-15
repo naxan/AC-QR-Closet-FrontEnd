@@ -18,7 +18,7 @@ class Profile extends React.Component {
         <h1>Profile</h1>
         <UserInfo id={this.props.id} user={this.props.user} />
         <Search />
-        <PatternContainer />
+        <PatternContainer patterns={this.state.patterns} />
       </div>
     );
   }
