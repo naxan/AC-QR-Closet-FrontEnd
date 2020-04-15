@@ -10,14 +10,14 @@ class Login extends React.Component {
   state = {
     username: "",
     password: "",
-    modalOpen: false,
+    showModal: false,
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   toggleModal = () => {
     this.setState({
-      modalOpen: !this.state.modalOpen,
+      showModal: !this.state.showModal,
     });
   };
 
@@ -32,7 +32,7 @@ class Login extends React.Component {
         this.setState({
           username: "",
           password: "",
-          modalOpen: false,
+          showModal: false,
         });
         this.props.verifyUser();
       }
@@ -44,7 +44,7 @@ class Login extends React.Component {
     return (
       <div className="Login">
         <Modal
-          open={this.state.modalOpen}
+          open={this.state.showModal}
           onClose={this.toggleModal}
           trigger={<Button onClick={this.toggleModal}>Login</Button>}
           closeIcon

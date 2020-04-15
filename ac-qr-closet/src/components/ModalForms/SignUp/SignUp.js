@@ -11,9 +11,16 @@ class SignUp extends React.Component {
     username: "",
     password: "",
     confirmPassword: "",
+    showModal: false,
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal,
+    });
+  };
 
   handleSignUp = () => {
     let username = this.state.username;
@@ -33,6 +40,9 @@ class SignUp extends React.Component {
             console.log(res);
             if (res.ok) {
               this.props.verifyUser();
+              this.setState({
+                showModal: false,
+              });
             }
           });
         }
@@ -48,7 +58,12 @@ class SignUp extends React.Component {
     const { username, password, confirmPassword } = this.state;
     return (
       <div className="Login">
-        <Modal trigger={<Button>Sign Up</Button>}>
+        <Modal
+          open={this.state.showModal}
+          onClose={this.toggleModal}
+          trigger={<Button onClick={this.toggleModal}>Sign Up</Button>}
+          closeIcon
+        >
           <Modal.Header>Sign Up</Modal.Header>
           <Modal.Content>
             <Form onSubmit={this.handleSignUp}>
