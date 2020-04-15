@@ -4,7 +4,7 @@ import SignUp from "../ModalForms/SignUp/SignUp";
 
 // --- PROPS RECEIVED ---
 // APP:
-// loggedIn, verifyUser
+// loggedIn, verifyUser, handleLogout
 
 class Navbar extends React.Component {
   render() {
@@ -12,7 +12,7 @@ class Navbar extends React.Component {
       <div>
         <h1>Navbar</h1>
         <Login verifyUser={this.props.verifyUser} />
-        <SignUp handleSignUp={this.props.handleSignUp} />
+        <SignUp verifyUser={this.props.verifyUser} />
       </div>
     );
   }

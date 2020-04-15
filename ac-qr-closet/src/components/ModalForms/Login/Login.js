@@ -10,9 +10,16 @@ class Login extends React.Component {
   state = {
     username: "",
     password: "",
+    modalOpen: false,
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  toggleModal = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+    });
+  };
 
   handleLogin = () => {
     let user = {
@@ -25,6 +32,7 @@ class Login extends React.Component {
         this.setState({
           username: "",
           password: "",
+          modalOpen: false,
         });
         this.props.verifyUser();
       }
@@ -35,7 +43,12 @@ class Login extends React.Component {
     const { username, password } = this.state;
     return (
       <div className="Login">
-        <Modal trigger={<Button>Login</Button>}>
+        <Modal
+          open={this.state.modalOpen}
+          onClose={this.toggleModal}
+          trigger={<Button onClick={this.toggleModal}>Login</Button>}
+          closeIcon
+        >
           <Modal.Header>Login</Modal.Header>
           <Modal.Content>
             <Form onSubmit={() => this.handleLogin(username, password)}>
@@ -60,7 +73,7 @@ class Login extends React.Component {
                 type="password"
                 onChange={this.handleChange}
               />
-              <Button type="submit">Submit</Button>
+              <Form.Button type="submit">Submit</Form.Button>
             </Form>
           </Modal.Content>
         </Modal>

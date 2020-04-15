@@ -4,7 +4,7 @@ import UserAuthAPI from "../../../api/UserAuthAPI";
 
 // --- PROPS RECEIVED ---
 // NAVBAR:
-// handleSignUp
+// verifyUser
 
 class SignUp extends React.Component {
   state = {
@@ -28,6 +28,14 @@ class SignUp extends React.Component {
 
       UserAuthAPI.signUp(newUser).then((res) => {
         console.log(res);
+        if (res.status === 201) {
+          UserAuthAPI.login(newUser).then((res) => {
+            console.log(res);
+            if (res.ok) {
+              this.props.verifyUser();
+            }
+          });
+        }
       });
     } else {
       console.log(
@@ -41,13 +49,9 @@ class SignUp extends React.Component {
     return (
       <div className="Login">
         <Modal trigger={<Button>Sign Up</Button>}>
-          <Modal.Header>Login</Modal.Header>
+          <Modal.Header>Sign Up</Modal.Header>
           <Modal.Content>
-            <Form
-              onSubmit={() =>
-                this.props.handleSignUp(username, password, confirmPassword)
-              }
-            >
+            <Form onSubmit={this.handleSignUp}>
               <Form.Input
                 required
                 error={

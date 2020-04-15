@@ -29,37 +29,6 @@ class App extends React.Component {
     });
   };
 
-  handleSignUp = (username, password, confirmedPassword) => {
-    if (password === confirmedPassword) {
-      let newUser = {
-        username: username,
-        password: password,
-      };
-
-      UserAuthAPI.signUp(newUser).then((res) => {
-        console.log(res);
-      });
-    } else {
-      console.log(
-        "Your password and password confirmation fields do not match."
-      );
-    }
-  };
-
-  // handleLogin = (username, password) => {
-  //   let user = {
-  //     username: username,
-  //     password: password,
-  //   };
-
-  //   UserAuthAPI.login(user).then((res) => {
-  //     console.log(res);
-  //     if (res.status === 200) {
-  //       this.verifyUser();
-  //     }
-  //   });
-  // };
-
   handleLogout = () => {
     UserAuthAPI.logout().then((res) => {
       console.log(res);
@@ -77,14 +46,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Button onClick={this.handleLogout}>Logout Test</Button>
-        <Button onClick={() => this.handleLogin("sailorMoon", "sailorMoon")}>
-          Login Test
-        </Button>
         <Navbar
           loggedIn={this.state.loggedIn}
           verifyUser={this.verifyUser}
-          // handleLogout={this.handleLogout}
-          // handleSignUp={this.handleSignUp}
+          handleLogout={this.handleLogout}
         />
         <Routes user={this.state.user} id={this.state.id} />
         <Footer />
