@@ -1,12 +1,21 @@
 import React from "react";
-import { Card, Icon, Image, Dropdown } from "semantic-ui-react";
+import { Card, Image, Dropdown } from "semantic-ui-react";
 import "./Pattern.css";
+import EditPattern from "../ModalForms/EditPattern/EditPattern";
+import DeletePattern from "../ModalForms/DeletePattern/DeletePattern";
+import PatternAPI from "../../api/PatternAPI";
 
 // --- PROPS RECEIVED ---
 // PATTERNCONTAINER:
 // pattern object, userOwned
 
 class Pattern extends React.Component {
+  handleDelete = () => {
+    let pattern = this.props.pattern;
+
+    PatternAPI.destroy(pattern._id).then((res) => console.log(res));
+  };
+
   render() {
     let pattern = this.props.pattern;
     return (
@@ -18,15 +27,12 @@ class Pattern extends React.Component {
             {this.props.userOwned && (
               <Dropdown icon="caret down">
                 <Dropdown.Menu>
-                  <Dropdown.Item text="Edit" />
-                  <Dropdown.Item text="Delete" />
+                  <EditPattern />
+                  <DeletePattern handleDelete={this.handleDelete} />
                 </Dropdown.Menu>
               </Dropdown>
             )}
           </Card.Header>
-          {/* <Card.Meta>
-              <span className="date">Joined in 2015</span>
-            </Card.Meta> */}
           <Card.Description>{pattern.description}</Card.Description>
         </Card.Content>
         <Card.Content extra>{pattern.textCode}</Card.Content>
