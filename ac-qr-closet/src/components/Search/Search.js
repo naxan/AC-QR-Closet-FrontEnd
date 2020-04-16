@@ -1,5 +1,6 @@
 import React from "react";
 import { Input } from "semantic-ui-react";
+import "./Search.css";
 
 // --- PROPS RECEIVED ---
 // PROFILE:
@@ -23,6 +24,7 @@ class SearchBar extends React.Component {
     const { value } = this.state;
     return (
       <Input
+        className="SearchBar"
         icon="search"
         placeholder="Search"
         value={value}

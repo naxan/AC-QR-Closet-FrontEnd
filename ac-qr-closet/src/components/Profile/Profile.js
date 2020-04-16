@@ -4,6 +4,7 @@ import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
 import UserAPI from "../../api/UserAPI";
 import PatternAPI from "../../api/PatternAPI";
+import "./Profile.css";
 
 // --- PROPS RECEIVED ---
 // APP:
@@ -73,7 +74,6 @@ class Profile extends React.Component {
     }
     return (
       <div className="Profile">
-        <h1>Profile</h1>
         <UserInfo id={this.props.id} user={this.props.user} />
         <Search handleSearch={this.handleSearch} />
         <PatternContainer

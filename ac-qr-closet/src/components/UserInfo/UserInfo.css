@@ -1,0 +1,16 @@
+.UserInfo .flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.UserInfo {
+  width: 60%;
+  margin: 15px;
+}
+
+@media (max-width: 415px) {
+  .UserInfo {
+    width: 90%;
+  }
+}

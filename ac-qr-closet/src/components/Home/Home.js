@@ -2,6 +2,7 @@ import React from "react";
 import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
 import PatternAPI from "../../api/PatternAPI";
+import "./Home.css";
 
 class Home extends React.Component {
   state = {

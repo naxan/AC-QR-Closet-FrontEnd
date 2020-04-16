@@ -1,5 +1,6 @@
 import React from "react";
 import Pattern from "../../components/Pattern/Pattern";
+import "./PatternContainer.css";
 
 // --- PROPS RECEIVED ---
 // PROFILE:
