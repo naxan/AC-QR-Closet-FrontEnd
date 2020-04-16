@@ -40,7 +40,7 @@ class Home extends React.Component {
     }
     return (
       <div className="Home">
-        <h1>Home</h1>
+        <h1>Custom Designs Library</h1>
         <Search handleSearch={this.handleSearch} />
         <PatternContainer patterns={this.state.patterns} />
       </div>
