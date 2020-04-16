@@ -3,7 +3,7 @@ import { Dropdown, Modal, Form } from "semantic-ui-react";
 
 // --- PROPS RECEIVED ---
 // PATTERN
-// handleEdit, pattern object
+// handleEdit, pattern object, toggleModal, showEditModal
 
 class EditPattern extends React.Component {
   state = {
@@ -39,7 +39,12 @@ class EditPattern extends React.Component {
   render() {
     const { title, description, textCode, image } = this.state;
     return (
-      <Modal trigger={<Dropdown.Item text="Edit" />} closeIcon>
+      <Modal
+        open={this.props.showEditModal}
+        onClose={this.props.toggleModal}
+        trigger={<Dropdown.Item text="Edit" onClick={this.props.toggleModal} />}
+        closeIcon
+      >
         <Modal.Header>Edit Your Pattern</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleEdit}>

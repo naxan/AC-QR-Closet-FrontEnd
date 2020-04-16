@@ -9,14 +9,37 @@ import DeletePattern from "../ModalForms/DeletePattern/DeletePattern";
 // pattern object, userOwned
 
 class Pattern extends React.Component {
+  state = {
+    showDeleteModal: false,
+    showEditModal: false,
+  };
+
   handleDelete = () => {
     let patternId = this.props.pattern._id;
     this.props.handleDelete(patternId);
+    this.setState({
+      showDeleteModal: false,
+    });
   };
 
   handleEdit = (editedPattern) => {
     let patternId = this.props.pattern._id;
     this.props.handleEdit(patternId, editedPattern);
+    this.setState({
+      showEditModal: false,
+    });
+  };
+
+  toggleDeleteModal = () => {
+    this.setState({
+      showDeleteModal: !this.state.showDeleteModal,
+    });
+  };
+
+  toggleEditModal = () => {
+    this.setState({
+      showEditModal: !this.state.showEditModal,
+    });
   };
 
   render() {
@@ -33,8 +56,14 @@ class Pattern extends React.Component {
                   <EditPattern
                     handleEdit={this.handleEdit}
                     pattern={this.props.pattern}
+                    showEditModal={this.state.showEditModal}
+                    toggleModal={this.toggleEditModal}
                   />
-                  <DeletePattern handleDelete={this.handleDelete} />
+                  <DeletePattern
+                    handleDelete={this.handleDelete}
+                    showDeleteModal={this.state.showDeleteModal}
+                    toggleModal={this.toggleDeleteModal}
+                  />
                 </Dropdown.Menu>
               </Dropdown>
             )}
