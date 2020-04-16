@@ -3,7 +3,7 @@ import Pattern from "../../components/Pattern/Pattern";
 
 // --- PROPS RECEIVED ---
 // PROFILE:
-// patterns, userOwned
+// patterns, userOwned, handleDelete
 // HOME:
 // patterns
 
@@ -17,6 +17,7 @@ class PatternContainer extends React.Component {
             pattern={pattern}
             key={pattern._id}
             userOwned={this.props.userOwned}
+            handleDelete={this.props.handleDelete}
           />
         );
       });

@@ -3,7 +3,6 @@ import { Card, Image, Dropdown } from "semantic-ui-react";
 import "./Pattern.css";
 import EditPattern from "../ModalForms/EditPattern/EditPattern";
 import DeletePattern from "../ModalForms/DeletePattern/DeletePattern";
-import PatternAPI from "../../api/PatternAPI";
 
 // --- PROPS RECEIVED ---
 // PATTERNCONTAINER:
@@ -11,9 +10,8 @@ import PatternAPI from "../../api/PatternAPI";
 
 class Pattern extends React.Component {
   handleDelete = () => {
-    let pattern = this.props.pattern;
-
-    PatternAPI.destroy(pattern._id).then((res) => console.log(res));
+    let patternId = this.props.pattern._id;
+    this.props.handleDelete(patternId);
   };
 
   render() {

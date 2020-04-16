@@ -3,6 +3,7 @@ import UserInfo from "../UserInfo/UserInfo";
 import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
 import UserAPI from "../../api/UserAPI";
+import PatternAPI from "../../api/PatternAPI";
 
 // --- PROPS RECEIVED ---
 // APP:
@@ -38,6 +39,17 @@ class Profile extends React.Component {
     });
   };
 
+  handleDelete = (patternId) => {
+    PatternAPI.destroy(patternId).then((res) => {
+      let existingPatterns = this.state.patterns.filter((pattern) => {
+        return pattern._id !== res._id;
+      });
+      this.setState({
+        patterns: existingPatterns,
+      });
+    });
+  };
+
   render() {
     if (!this.state.dataRendered) {
       return null;
@@ -47,7 +59,11 @@ class Profile extends React.Component {
         <h1>Profile</h1>
         <UserInfo id={this.props.id} user={this.props.user} />
         <Search handleSearch={this.handleSearch} />
-        <PatternContainer patterns={this.state.patterns} userOwned={true} />
+        <PatternContainer
+          patterns={this.state.patterns}
+          userOwned={true}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

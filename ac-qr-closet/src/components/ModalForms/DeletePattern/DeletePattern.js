@@ -7,7 +7,6 @@ import { Dropdown, Modal, Button } from "semantic-ui-react";
 
 class DeletePattern extends React.Component {
   render() {
-    let pattern = this.props.pattern;
     return (
       <Modal trigger={<Dropdown.Item text="Delete" />} closeIcon>
         <Modal.Header>
