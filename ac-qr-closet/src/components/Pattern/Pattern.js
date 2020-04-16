@@ -8,7 +8,6 @@ import { Card, Icon, Image } from "semantic-ui-react";
 class Pattern extends React.Component {
   render() {
     let pattern = this.props.pattern;
-    console.log(pattern);
     return (
       <Card>
         <Image src={pattern.image} wrapped ui={false} />

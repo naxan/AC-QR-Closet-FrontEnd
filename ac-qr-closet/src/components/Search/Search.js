@@ -1,23 +1,33 @@
 import React from "react";
+import { Input } from "semantic-ui-react";
 
 // --- PROPS RECEIVED ---
 // PROFILE:
 //
 
-class Search extends React.Component {
+class SearchBar extends React.Component {
   state = {
-    query: "",
+    value: "",
   };
 
   updateQuery = (e) => {
     this.setState({
-      query: e.target.value,
+      value: e.target.value,
     });
+    this.props.handleSearch(e.target.value);
   };
 
   render() {
-    return <h2>Search</h2>;
+    const { value } = this.state;
+    return (
+      <Input
+        icon="search"
+        placeholder="Search"
+        value={value}
+        onChange={this.updateQuery}
+      />
+    );
   }
 }
 
-export default Search;
+export default SearchBar;

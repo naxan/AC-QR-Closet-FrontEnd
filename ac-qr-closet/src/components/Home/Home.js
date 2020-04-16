@@ -22,11 +22,28 @@ class Home extends React.Component {
     this.getPosts();
   };
 
+  handleSearch = (query) => {
+    PatternAPI.getAll().then((res) => {
+      let filteredPatterns = res.filter((pattern) => {
+        return pattern.title.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+      });
+      this.setState({
+        patterns: filteredPatterns,
+      });
+    });
+  };
+
   render() {
+    if (!this.state.dataRendered) {
+      return null;
+    }
     return (
       <div className="Home">
         <h1>Home</h1>
-        <Search />
+        <Search
+          patterns={this.state.patterns}
+          handleSearch={this.handleSearch}
+        />
         <PatternContainer patterns={this.state.patterns} />
       </div>
     );
