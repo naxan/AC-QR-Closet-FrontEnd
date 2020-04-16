@@ -27,6 +27,17 @@ class Profile extends React.Component {
     this.getPosts();
   };
 
+  handleSearch = (query) => {
+    UserAPI.getOne(this.props.id).then((res) => {
+      let filteredPatterns = res.createdPatterns.filter((pattern) => {
+        return pattern.title.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+      });
+      this.setState({
+        patterns: filteredPatterns,
+      });
+    });
+  };
+
   render() {
     if (!this.state.dataRendered) {
       return null;
@@ -35,8 +46,8 @@ class Profile extends React.Component {
       <div className="Profile">
         <h1>Profile</h1>
         <UserInfo id={this.props.id} user={this.props.user} />
-        <Search />
-        <PatternContainer patterns={this.state.patterns} />
+        <Search handleSearch={this.handleSearch} />
+        <PatternContainer patterns={this.state.patterns} userOwned={true} />
       </div>
     );
   }

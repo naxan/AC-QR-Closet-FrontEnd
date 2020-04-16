@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon, Image, Dropdown } from "semantic-ui-react";
+import "./Pattern.css";
 
 // --- PROPS RECEIVED ---
 // PATTERNCONTAINER:
-// pattern object
+// pattern object, userOwned
 
 class Pattern extends React.Component {
   render() {
@@ -12,7 +13,17 @@ class Pattern extends React.Component {
       <Card>
         <Image src={pattern.image} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>{pattern.title}</Card.Header>
+          <Card.Header>
+            {pattern.title}
+            {this.props.userOwned && (
+              <Dropdown icon="caret down">
+                <Dropdown.Menu>
+                  <Dropdown.Item text="Edit" />
+                  <Dropdown.Item text="Delete" />
+                </Dropdown.Menu>
+              </Dropdown>
+            )}
+          </Card.Header>
           {/* <Card.Meta>
               <span className="date">Joined in 2015</span>
             </Card.Meta> */}

@@ -3,7 +3,9 @@ import { Input } from "semantic-ui-react";
 
 // --- PROPS RECEIVED ---
 // PROFILE:
-//
+// handleSearch
+// HOME:
+// handleSearch
 
 class SearchBar extends React.Component {
   state = {
