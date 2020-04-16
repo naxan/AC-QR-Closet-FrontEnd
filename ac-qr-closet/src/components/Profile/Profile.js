@@ -50,6 +50,23 @@ class Profile extends React.Component {
     });
   };
 
+  handleEdit = (patternId, editedPattern) => {
+    console.log(this.state.patterns);
+    PatternAPI.update(patternId, editedPattern).then((res) => {
+      let patternsState = this.state.patterns;
+
+      for (let i = 0; i < patternsState.length; i++) {
+        if (patternsState[i]._id === res._id) {
+          patternsState[i] = res;
+          this.setState({
+            patterns: patternsState,
+          });
+          return;
+        }
+      }
+    });
+  };
+
   render() {
     if (!this.state.dataRendered) {
       return null;
@@ -63,6 +80,7 @@ class Profile extends React.Component {
           patterns={this.state.patterns}
           userOwned={true}
           handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
         />
       </div>
     );

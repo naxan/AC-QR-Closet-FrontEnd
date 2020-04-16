@@ -14,6 +14,11 @@ class Pattern extends React.Component {
     this.props.handleDelete(patternId);
   };
 
+  handleEdit = (editedPattern) => {
+    let patternId = this.props.pattern._id;
+    this.props.handleEdit(patternId, editedPattern);
+  };
+
   render() {
     let pattern = this.props.pattern;
     return (
@@ -25,7 +30,10 @@ class Pattern extends React.Component {
             {this.props.userOwned && (
               <Dropdown icon="caret down">
                 <Dropdown.Menu>
-                  <EditPattern />
+                  <EditPattern
+                    handleEdit={this.handleEdit}
+                    pattern={this.props.pattern}
+                  />
                   <DeletePattern handleDelete={this.handleDelete} />
                 </Dropdown.Menu>
               </Dropdown>
