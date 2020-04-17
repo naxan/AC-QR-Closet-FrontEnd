@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "semantic-ui-react";
 import "./CreatePattern.css";
 import PatternAPI from "../../api/PatternAPI";
+import { withRouter } from "react-router-dom";
 
 // --- PROPS RECEIVED ---
 // APP
@@ -45,7 +46,7 @@ class CreatePattern extends React.Component {
           image: data,
         };
         PatternAPI.create(this.props.id, newPattern).then((res) =>
-          console.log(res)
+          this.props.history.push("/profile")
         );
       });
   };
@@ -102,4 +103,4 @@ class CreatePattern extends React.Component {
   }
 }
 
-export default CreatePattern;
+export default withRouter(CreatePattern);

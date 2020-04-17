@@ -21,3 +21,9 @@
 .CreatePattern .image-btns {
   margin-bottom: 10px;
 }
+
+.CreatePattern .uploaded-image {
+  height: 200px;
+  width: auto;
+  margin-bottom: 10px;
+}
