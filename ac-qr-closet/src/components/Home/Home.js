@@ -3,6 +3,7 @@ import Search from "../Search/Search";
 import PatternContainer from "../../containers/PatternContainer/PatternContainer";
 import PatternAPI from "../../api/PatternAPI";
 import "./Home.css";
+import UploadImage from "../UploadImage/UploadImage";
 
 class Home extends React.Component {
   state = {
@@ -41,6 +42,7 @@ class Home extends React.Component {
     return (
       <div className="Home">
         <h1>Custom Designs Library</h1>
+        <UploadImage />
         <Search handleSearch={this.handleSearch} />
         <PatternContainer patterns={this.state.patterns} />
       </div>
