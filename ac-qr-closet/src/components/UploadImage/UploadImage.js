@@ -38,7 +38,6 @@ class UploadImage extends React.Component {
           this.setState({
             uploadStatus: "Image has been successfully uploaded!",
           });
-          //   console.log(data, data.body);
         }
       });
   };

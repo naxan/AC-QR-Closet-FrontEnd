@@ -4,6 +4,7 @@ import UserAuthAPI from "../../api/UserAuthAPI";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "semantic-ui-css/semantic.min.css";
+import { withRouter } from "react-router-dom";
 
 class App extends React.Component {
   state = {
@@ -26,6 +27,10 @@ class App extends React.Component {
           loggedIn: true,
           dataRendered: true,
         });
+      } else {
+        this.setState({
+          dataRendered: true,
+        });
       }
     });
   };
@@ -39,6 +44,7 @@ class App extends React.Component {
           id: "",
           loggedIn: false,
         });
+        // this.props.history.push("/");
       }
     });
   };
