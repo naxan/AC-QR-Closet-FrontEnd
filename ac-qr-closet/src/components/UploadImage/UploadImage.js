@@ -20,11 +20,10 @@ class UploadImage extends React.Component {
       uploadedImage: URL.createObjectURL(e.target.files[0]),
     });
 
-    fetch("http://localhost:4000/image/uploadmulter", {
+    fetch("http://localhost:4000/image/upload", {
       method: "POST",
       body: imageFormObj,
     }).then((data) => {
-      console.log(data);
       if (data.ok) {
         alert("Image has been successfully uploaded!");
         this.setDefaultImage();

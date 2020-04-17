@@ -46,7 +46,11 @@ class Pattern extends React.Component {
     let pattern = this.props.pattern;
     return (
       <Card>
-        <Image src={pattern.image} wrapped ui={false} />
+        <Image
+          src={"http://localhost:4000/" + pattern.image.imageData}
+          wrapped
+          ui={false}
+        />
         <Card.Content>
           <Card.Header>
             {pattern.title}
