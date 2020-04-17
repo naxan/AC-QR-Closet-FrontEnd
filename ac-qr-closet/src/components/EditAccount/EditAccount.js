@@ -69,6 +69,7 @@ class EditAccount extends React.Component {
         username: res.username,
         authorCode: res.authorCode,
         town: res.town,
+        uploadedImageURL: "http://localhost:4000/" + res.profilePic.imageData,
       });
     });
 
