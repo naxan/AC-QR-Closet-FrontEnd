@@ -30,13 +30,17 @@ class UploadImage extends React.Component {
     fetch("http://localhost:4000/image/upload", {
       method: "POST",
       body: imageFormObj,
-    }).then((data) => {
-      if (data.ok) {
-        this.setState({
-          uploadStatus: "Image has been successfully uploaded!",
-        });
-      }
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.ok) {
+          this.setState({
+            uploadStatus: "Image has been successfully uploaded!",
+          });
+          //   console.log(data, data.body);
+        }
+      });
   };
 
   render() {
