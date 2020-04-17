@@ -69,15 +69,10 @@ class CreatePattern extends React.Component {
                 onChange={(e) => this.handleFileSelect(e)}
                 ref={(fileInput) => (this.fileInput = fileInput)}
               />
-              <Button onClick={() => this.fileInput.click()}>Pick File</Button>
+              <Button onClick={() => this.fileInput.click()}>
+                Choose File
+              </Button>
             </div>
-            {/* {this.state.uploadedImageURL && (
-            <img
-              className="uploaded-image"
-              src={this.state.uploadedImageURL}
-              alt="upload-image"
-            />
-          )} */}
           </Form>
           <Form onSubmit={this.handleCreate}>
             <Form.Input
@@ -103,6 +98,7 @@ class CreatePattern extends React.Component {
         </div>
 
         <div className="example-pattern">
+          <h2>Example Post:</h2>
           <Card className="Pattern">
             <Image src={this.state.uploadedImageURL} wrapped ui={false} />
             <Card.Content extra>{this.state.textCode}</Card.Content>
