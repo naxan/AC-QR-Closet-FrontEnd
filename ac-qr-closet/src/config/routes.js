@@ -16,7 +16,9 @@ class Routes extends React.Component {
         />
         <Route
           path="/newDesign"
-          render={() => <CreatePattern id={this.props.id} />}
+          render={() => (
+            <CreatePattern user={this.props.user} id={this.props.id} />
+          )}
         />
         <Route
           path="/Account"

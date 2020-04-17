@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Card, Image } from "semantic-ui-react";
 import "./CreatePattern.css";
+import "../Pattern/Pattern.css";
 import PatternAPI from "../../api/PatternAPI";
 import { withRouter } from "react-router-dom";
 
@@ -55,49 +56,65 @@ class CreatePattern extends React.Component {
     const { title, description, textCode } = this.state;
     return (
       <div className="CreatePattern">
-        <Form>
-          <Form.Field>
-            <label>Pattern Image</label>
-          </Form.Field>
-          <div className="image-btns">
-            <input
-              label="Image"
-              style={{ display: "none" }}
-              type="file"
-              onChange={(e) => this.handleFileSelect(e)}
-              ref={(fileInput) => (this.fileInput = fileInput)}
-            />
-            <Button onClick={() => this.fileInput.click()}>Pick File</Button>
-          </div>
-          {this.state.uploadedImageURL && (
+        <div className="design-form">
+          <Form>
+            <Form.Field>
+              <label>Pattern Image</label>
+            </Form.Field>
+            <div className="image-btns">
+              <input
+                label="Image"
+                style={{ display: "none" }}
+                type="file"
+                onChange={(e) => this.handleFileSelect(e)}
+                ref={(fileInput) => (this.fileInput = fileInput)}
+              />
+              <Button onClick={() => this.fileInput.click()}>Pick File</Button>
+            </div>
+            {/* {this.state.uploadedImageURL && (
             <img
               className="uploaded-image"
               src={this.state.uploadedImageURL}
               alt="upload-image"
             />
-          )}
-        </Form>
-        <Form onSubmit={this.handleCreate}>
-          <Form.Input
-            label="Design Code"
-            name="textCode"
-            onChange={this.handleChange}
-            value={textCode}
-          />
-          <Form.Input
-            label="Title"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
-          />
-          <Form.Input
-            label="Description"
-            name="description"
-            onChange={this.handleChange}
-            value={description}
-          />
-          <Form.Button type="submit">Submit Design</Form.Button>
-        </Form>
+          )} */}
+          </Form>
+          <Form onSubmit={this.handleCreate}>
+            <Form.Input
+              label="Design Code"
+              name="textCode"
+              onChange={this.handleChange}
+              value={textCode}
+            />
+            <Form.Input
+              label="Title"
+              name="title"
+              onChange={this.handleChange}
+              value={title}
+            />
+            <Form.Input
+              label="Description"
+              name="description"
+              onChange={this.handleChange}
+              value={description}
+            />
+            <Form.Button type="submit">Submit Design</Form.Button>
+          </Form>
+        </div>
+
+        <div className="example-pattern">
+          <Card className="Pattern">
+            <Image src={this.state.uploadedImageURL} wrapped ui={false} />
+            <Card.Content extra>{this.state.textCode}</Card.Content>
+            <Card.Content>
+              <Card.Header>{this.state.title}</Card.Header>
+              <Card.Description>{this.state.description}</Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              Created by: <a className="username">{this.props.user}</a>
+            </Card.Content>
+          </Card>
+        </div>
       </div>
     );
   }

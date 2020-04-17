@@ -1,5 +1,9 @@
 .CreatePattern {
   display: flex;
+}
+
+.CreatePattern .design-form {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -7,23 +11,29 @@
   margin: 30px 0;
 }
 
-.CreatePattern .ui.form {
+.CreatePattern .design-form .ui.form {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.CreatePattern .ui.form .field {
+.CreatePattern .design-form .ui.form .field {
   width: 100%;
 }
 
-.CreatePattern .image-btns {
+.CreatePattern .design-form .image-btns {
   margin-bottom: 10px;
 }
 
-.CreatePattern .uploaded-image {
+.CreatePattern .design-form .uploaded-image {
   height: 200px;
   width: auto;
   margin-bottom: 10px;
+}
+
+.CreatePattern .example-pattern {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
