@@ -45,12 +45,13 @@ class Pattern extends React.Component {
   render() {
     let pattern = this.props.pattern;
     return (
-      <Card>
+      <Card className="Pattern">
         <Image
           src={"http://localhost:4000/" + pattern.image.imageData}
           wrapped
           ui={false}
         />
+        <Card.Content extra>{pattern.textCode}</Card.Content>
         <Card.Content>
           <Card.Header>
             {pattern.title}
@@ -74,7 +75,12 @@ class Pattern extends React.Component {
           </Card.Header>
           <Card.Description>{pattern.description}</Card.Description>
         </Card.Content>
-        <Card.Content extra>{pattern.textCode}</Card.Content>
+        {!this.props.userOwned && (
+          <Card.Content extra>
+            Created by:{" "}
+            <a className="username">{this.props.pattern.author.username}</a>
+          </Card.Content>
+        )}
       </Card>
     );
   }

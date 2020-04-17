@@ -1,4 +1,8 @@
-.ui.dropdown {
+.Pattern .ui.dropdown {
   float: right;
   color: rgb(0, 0, 0, 0.5);
+}
+
+.Pattern .ui.card > .extra a:not(.ui) .username {
+  color: blue;
 }

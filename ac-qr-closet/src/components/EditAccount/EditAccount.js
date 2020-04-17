@@ -72,14 +72,6 @@ class EditAccount extends React.Component {
         uploadedImageURL: "http://localhost:4000/" + res.profilePic.imageData,
       });
     });
-
-    // let pattern = this.props.pattern;
-    // this.setState({
-    //   title: pattern.title,
-    //   description: pattern.description,
-    //   textCode: pattern.textCode,
-    //   image: pattern.image,
-    // });
   };
 
   render() {
