@@ -1,29 +1,23 @@
 import React from "react";
 import { Form, Button } from "semantic-ui-react";
 import "./CreatePattern.css";
+import PatternAPI from "../../api/PatternAPI";
 
 // --- PROPS RECEIVED ---
-// NAVBAR
-// TO DO: ADD toggleModal, showCreateModal
+// APP
+// id
 
 class CreatePattern extends React.Component {
   state = {
     title: "",
     description: "",
     textCode: "",
-    image: "",
     uploadedImage: null,
     uploadedImageURL: "http://localhost:4000/uploads/default.jpg",
   };
 
-  setDefaultImage() {
-    this.setState({
-      uploadedImage: null,
-    });
-  }
-
   handleFileSelect = (e) => {
-    if (e.target.files) {
+    if (e.target.files.length > 0) {
       this.setState({
         uploadedImage: e.target.files[0],
         uploadedImageURL: URL.createObjectURL(e.target.files[0]),
@@ -31,7 +25,9 @@ class CreatePattern extends React.Component {
     }
   };
 
-  uploadImage = () => {
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  handleCreate = () => {
     let imageFormObj = new FormData();
     imageFormObj.append("imageName", "image-" + Date.now());
     imageFormObj.append("imageData", this.state.uploadedImage);
@@ -42,19 +38,20 @@ class CreatePattern extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.ok) {
-          this.setState({
-            uploadStatus: "Image has been successfully uploaded!",
-          });
-        }
+        let newPattern = {
+          title: this.state.title,
+          description: this.state.description,
+          textCode: this.state.textCode,
+          image: data,
+        };
+        PatternAPI.create(this.props.id, newPattern).then((res) =>
+          console.log(res)
+        );
       });
   };
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
-
   render() {
-    const { title, description, textCode, image } = this.state;
+    const { title, description, textCode } = this.state;
     return (
       <div className="CreatePattern">
         <Form>
@@ -70,7 +67,6 @@ class CreatePattern extends React.Component {
               ref={(fileInput) => (this.fileInput = fileInput)}
             />
             <Button onClick={() => this.fileInput.click()}>Pick File</Button>
-            <Button onClick={this.uploadImage}>Upload</Button>
           </div>
           {this.state.uploadedImageURL && (
             <img
@@ -79,7 +75,8 @@ class CreatePattern extends React.Component {
               alt="upload-image"
             />
           )}
-
+        </Form>
+        <Form onSubmit={this.handleCreate}>
           <Form.Input
             label="Design Code"
             name="textCode"

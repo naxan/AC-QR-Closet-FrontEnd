@@ -13,7 +13,10 @@ class Routes extends React.Component {
           path="/profile"
           render={() => <Profile user={this.props.user} id={this.props.id} />}
         />
-        <Route path="/newDesign" component={CreatePattern} />
+        <Route
+          path="/newDesign"
+          render={() => <CreatePattern id={this.props.id} />}
+        />
       </Switch>
     );
   }

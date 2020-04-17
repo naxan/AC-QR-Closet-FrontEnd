@@ -44,7 +44,7 @@ class App extends React.Component {
           id: "",
           loggedIn: false,
         });
-        // this.props.history.push("/");
+        this.props.history.push("/");
       }
     });
   };
@@ -67,4 +67,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
