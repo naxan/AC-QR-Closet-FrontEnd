@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "../ModalForms/Login/Login";
 import SignUp from "../ModalForms/SignUp/SignUp";
-import { Menu } from "semantic-ui-react";
+import { Menu, Button } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 
 // --- PROPS RECEIVED ---
@@ -27,12 +27,17 @@ class Navbar extends React.Component {
           >
             QR Closet
           </Menu.Item>
+          {this.props.loggedIn && (
+            <Button as={Link} to="/newDesign">
+              ADD DESIGN
+            </Button>
+          )}
 
           <Menu.Menu position="right">
             {this.props.loggedIn && (
               <>
                 <Menu.Item name="Home" as={Link} to="/">
-                  Home
+                  Design Library
                 </Menu.Item>
                 <Menu.Item name="Profile" as={Link} to="/profile">
                   Profile
