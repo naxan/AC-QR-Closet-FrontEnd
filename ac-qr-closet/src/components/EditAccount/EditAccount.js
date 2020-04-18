@@ -145,7 +145,6 @@ class EditAccount extends React.Component {
     const { username, authorCode, town } = this.state;
     return (
       <div className="EditAccount">
-        {/* <div className="info"> */}
         <h2>Account Information</h2>
         <Form>
           <Form.Field error={this.state.imageError}>
@@ -199,7 +198,6 @@ class EditAccount extends React.Component {
           />
           <Form.Button type="submit">Submit Changes</Form.Button>
         </Form>
-        {/* </div> */}
         <div className="actions">
           <h2>Account Actions</h2>
           <DeleteUser id={this.props.id} />
