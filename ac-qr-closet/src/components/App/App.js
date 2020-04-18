@@ -50,6 +50,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.loggedIn);
     if (!this.state.dataRendered) {
       return null;
     }
@@ -60,7 +61,11 @@ class App extends React.Component {
           verifyUser={this.verifyUser}
           handleLogout={this.handleLogout}
         />
-        <Routes user={this.state.user} id={this.state.id} />
+        <Routes
+          loggedIn={this.state.loggedIn}
+          user={this.state.user}
+          id={this.state.id}
+        />
         <Footer />
       </div>
     );

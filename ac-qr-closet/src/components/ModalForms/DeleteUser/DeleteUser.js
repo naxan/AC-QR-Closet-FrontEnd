@@ -1,6 +1,8 @@
 import React from "react";
 import { Modal, Button, Icon } from "semantic-ui-react";
 import UserAPI from "../../../api/UserAPI";
+import UserAuthAPI from "../../../api/UserAuthAPI";
+import { withRouter } from "react-router-dom";
 import "./DeleteUser.css";
 
 // --- PROPS RECEIVED ---
@@ -19,7 +21,10 @@ class DeleteUser extends React.Component {
 
   handleUserDelete = () => {
     UserAPI.destroy(this.props.id).then((res) => {
-      console.log(res);
+      UserAuthAPI.logout().then(() => {
+        this.props.history.push("/");
+        window.location.reload();
+      });
     });
   };
 
@@ -61,4 +66,4 @@ class DeleteUser extends React.Component {
   }
 }
 
-export default DeleteUser;
+export default withRouter(DeleteUser);

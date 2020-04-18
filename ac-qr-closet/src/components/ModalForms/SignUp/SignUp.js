@@ -34,7 +34,7 @@ class SignUp extends React.Component {
       };
 
       UserAuthAPI.signUp(newUser).then((res) => {
-        console.log(res);
+        console.log(res.message);
         if (res.status === 201) {
           UserAuthAPI.login(newUser).then((res) => {
             console.log(res);

@@ -30,7 +30,6 @@ class EditAccount extends React.Component {
   };
 
   handleUpdate = () => {
-    console.log(this.state.uploadedImage);
     if (this.state.uploadedImage) {
       let imageFormObj = new FormData();
       imageFormObj.append("imageName", "image-" + Date.now());
@@ -66,12 +65,20 @@ class EditAccount extends React.Component {
   componentDidMount = () => {
     let userId = this.props.id;
     UserAPI.getOne(userId).then((res) => {
-      this.setState({
-        username: res.username,
-        authorCode: res.authorCode,
-        town: res.town,
-        uploadedImageURL: "http://localhost:4000/" + res.profilePic.imageData,
-      });
+      if (res.profilePic) {
+        this.setState({
+          username: res.username,
+          authorCode: res.authorCode,
+          town: res.town,
+          uploadedImageURL: "http://localhost:4000/" + res.profilePic.imageData,
+        });
+      } else {
+        this.setState({
+          username: res.username,
+          authorCode: res.authorCode,
+          town: res.town,
+        });
+      }
     });
   };
 
