@@ -12,6 +12,8 @@ class SignUp extends React.Component {
     password: "",
     confirmPassword: "",
     showModal: false,
+    usernameError: "",
+    passwordError: "",
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -34,7 +36,11 @@ class SignUp extends React.Component {
       };
 
       UserAuthAPI.signUp(newUser).then((res) => {
-        console.log(res.message);
+        if (res.status === 400) {
+          this.setState({
+            usernameError: res.message,
+          });
+        }
         if (res.status === 201) {
           UserAuthAPI.login(newUser).then((res) => {
             console.log(res);
@@ -48,9 +54,10 @@ class SignUp extends React.Component {
         }
       });
     } else {
-      console.log(
-        "Your password and password confirmation fields do not match."
-      );
+      this.setState({
+        passwordError:
+          "Your password and password confirmation fields do not match.",
+      });
     }
   };
 
@@ -70,7 +77,7 @@ class SignUp extends React.Component {
               <Form.Input
                 required
                 error={
-                  this.state.usernameError ? "Please enter your username" : null
+                  this.state.usernameError ? this.state.usernameError : null
                 }
                 label="Username"
                 placeholder="Username"
@@ -81,6 +88,9 @@ class SignUp extends React.Component {
               />
               <Form.Input
                 required
+                error={
+                  this.state.passwordError ? this.state.passwordError : null
+                }
                 label="Password"
                 id="form-input-password"
                 name="password"
