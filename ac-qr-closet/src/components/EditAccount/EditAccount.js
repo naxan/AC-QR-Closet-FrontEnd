@@ -7,7 +7,7 @@ import DeleteUser from "../ModalForms/DeleteUser/DeleteUser";
 
 // --- PROPS RECEIVED ---
 // APP
-// id
+// id, user
 
 class EditAccount extends React.Component {
   state = {
@@ -16,6 +16,8 @@ class EditAccount extends React.Component {
     town: "",
     uploadedImage: null,
     uploadedImageURL: "http://localhost:4000/uploads/default.jpg",
+    imageError: false,
+    usernameError: "",
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -30,35 +32,92 @@ class EditAccount extends React.Component {
   };
 
   handleUpdate = () => {
-    if (this.state.uploadedImage) {
-      let imageFormObj = new FormData();
-      imageFormObj.append("imageName", "image-" + Date.now());
-      imageFormObj.append("imageData", this.state.uploadedImage);
-      fetch("http://localhost:4000/image/upload", {
-        method: "POST",
-        body: imageFormObj,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          let updatedUser = {
-            username: this.state.username,
-            authorCode: this.state.authorCode,
-            town: this.state.town,
-            profilePic: data,
-          };
-          UserAPI.update(this.props.id, updatedUser).then((res) =>
-            this.props.history.push("/profile")
-          );
-        });
+    // USERNAME CHECK: Checks if user has changed their username
+    if (this.props.user === this.state.username) {
+      // IMAGE CHECK: Checks if user has selected image to upload, and uploads if true
+      if (this.state.uploadedImage) {
+        let imageFormObj = new FormData();
+        imageFormObj.append("imageName", "image-" + Date.now());
+        imageFormObj.append("imageData", this.state.uploadedImage);
+        fetch("http://localhost:4000/image/upload", {
+          method: "POST",
+          body: imageFormObj,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let updatedUser = {
+              authorCode: this.state.authorCode,
+              town: this.state.town,
+              profilePic: data,
+            };
+            UserAPI.update(this.props.id, updatedUser).then((res) =>
+              this.props.history.push("/profile")
+            );
+          })
+          .catch((err) => {
+            this.setState({
+              imageError: true,
+            });
+          });
+        // IMAGE CHECK: If no image is selected, do not upload. Only change text information
+      } else {
+        let updatedUser = {
+          authorCode: this.state.authorCode,
+          town: this.state.town,
+        };
+        UserAPI.update(this.props.id, updatedUser).then((res) =>
+          this.props.history.push("/profile")
+        );
+      }
+      // USERNAME CHECK: If username has been changed, check if username is available
     } else {
-      let updatedUser = {
-        username: this.state.username,
-        authorCode: this.state.authorCode,
-        town: this.state.town,
-      };
-      UserAPI.update(this.props.id, updatedUser).then((res) =>
-        this.props.history.push("/profile")
-      );
+      UserAPI.checkUsername(this.state.username).then((res) => {
+        // If username has been taken, save error message to display
+        if (!res.ok) {
+          this.setState({
+            usernameError: res.message,
+          });
+          // If username is not taken, we can now update the user info
+        } else {
+          // IMAGE CHECK: Checks if user has selected image to upload, and uploads if true
+          if (this.state.uploadedImage) {
+            let imageFormObj = new FormData();
+            imageFormObj.append("imageName", "image-" + Date.now());
+            imageFormObj.append("imageData", this.state.uploadedImage);
+            fetch("http://localhost:4000/image/upload", {
+              method: "POST",
+              body: imageFormObj,
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                let updatedUser = {
+                  username: this.state.username,
+                  authorCode: this.state.authorCode,
+                  town: this.state.town,
+                  profilePic: data,
+                };
+                UserAPI.update(this.props.id, updatedUser).then((res) =>
+                  this.props.history.push("/profile")
+                );
+              })
+              .catch((err) => {
+                this.setState({
+                  imageError: true,
+                });
+              });
+            // IMAGE CHECK: If no image is selected, do not upload. Only change text information
+          } else {
+            let updatedUser = {
+              username: this.state.username,
+              authorCode: this.state.authorCode,
+              town: this.state.town,
+            };
+            UserAPI.update(this.props.id, updatedUser).then((res) =>
+              this.props.history.push("/profile")
+            );
+          }
+        }
+      });
     }
   };
 
@@ -89,8 +148,16 @@ class EditAccount extends React.Component {
         {/* <div className="info"> */}
         <h2>Account Information</h2>
         <Form>
-          <Form.Field>
+          <Form.Field error={this.state.imageError}>
             <label>Profile Picture</label>
+            <Form.Input
+              style={{ display: "none" }}
+              error={
+                this.state.imageError
+                  ? "Selected image file size is too large"
+                  : null
+              }
+            />
           </Form.Field>
           <div className="image-btns">
             <input
@@ -112,6 +179,7 @@ class EditAccount extends React.Component {
         </Form>
         <Form onSubmit={this.handleUpdate}>
           <Form.Input
+            error={this.state.usernameError ? this.state.usernameError : null}
             label="Change Username"
             name="username"
             onChange={this.handleChange}

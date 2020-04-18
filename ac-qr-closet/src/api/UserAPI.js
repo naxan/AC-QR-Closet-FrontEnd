@@ -40,9 +40,26 @@ const destroy = (userId) => {
     .catch((err) => console.log(err));
 };
 
+const checkUsername = (username) => {
+  let nameToCheck = {
+    username: username,
+  };
+  return fetch(`${endpoint}/check-username`, {
+    credentials: "include",
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(nameToCheck),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
+
 export default {
   getAll,
   getOne,
   update,
   destroy,
+  checkUsername,
 };

@@ -37,7 +37,7 @@ class Routes extends React.Component {
           path="/Account"
           render={() =>
             this.props.loggedIn ? (
-              <EditAccount id={this.props.id} />
+              <EditAccount user={this.props.user} id={this.props.id} />
             ) : (
               <Redirect to="/" />
             )
