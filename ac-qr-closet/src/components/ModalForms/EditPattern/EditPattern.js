@@ -42,7 +42,13 @@ class EditPattern extends React.Component {
       <Modal
         open={this.props.showEditModal}
         onClose={this.props.toggleModal}
-        trigger={<Dropdown.Item text="Edit" onClick={this.props.toggleModal} />}
+        trigger={
+          <Dropdown.Item
+            icon="edit"
+            text="Edit"
+            onClick={this.props.toggleModal}
+          />
+        }
         closeIcon
       >
         <Modal.Header>Edit Your Pattern</Modal.Header>

@@ -5,7 +5,7 @@ import PatternContainer from "../../containers/PatternContainer/PatternContainer
 import UserAPI from "../../api/UserAPI";
 import PatternAPI from "../../api/PatternAPI";
 import "./Profile.css";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 // --- PROPS RECEIVED ---
@@ -77,7 +77,8 @@ class Profile extends React.Component {
     return (
       <div className="Profile">
         <UserInfo id={this.props.id} user={this.props.user} />
-        <Button as={Link} to="/account">
+        <Button as={Link} to="/account" icon labelPosition="left">
+          <Icon name="edit" />
           Edit Your Account
         </Button>
         <Search handleSearch={this.handleSearch} />

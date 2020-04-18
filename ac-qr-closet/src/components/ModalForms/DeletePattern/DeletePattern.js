@@ -12,7 +12,11 @@ class DeletePattern extends React.Component {
         open={this.props.showDeleteModal}
         onClose={this.props.toggleModal}
         trigger={
-          <Dropdown.Item text="Delete" onClick={this.props.toggleModal} />
+          <Dropdown.Item
+            icon="delete"
+            text="Delete"
+            onClick={this.props.toggleModal}
+          />
         }
         closeIcon
       >

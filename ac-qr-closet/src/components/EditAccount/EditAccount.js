@@ -1,8 +1,9 @@
 import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Icon } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 import "./EditAccount.css";
 import UserAPI from "../../api/UserAPI";
+import DeleteUser from "../ModalForms/DeleteUser/DeleteUser";
 
 // --- PROPS RECEIVED ---
 // APP
@@ -78,6 +79,8 @@ class EditAccount extends React.Component {
     const { username, authorCode, town } = this.state;
     return (
       <div className="EditAccount">
+        {/* <div className="info"> */}
+        <h2>Account Information</h2>
         <Form>
           <Form.Field>
             <label>Profile Picture</label>
@@ -90,7 +93,7 @@ class EditAccount extends React.Component {
               onChange={(e) => this.handleFileSelect(e)}
               ref={(fileInput) => (this.fileInput = fileInput)}
             />
-            <Button onClick={() => this.fileInput.click()}>Pick File</Button>
+            <Button onClick={() => this.fileInput.click()}>Choose File</Button>
           </div>
           {this.state.uploadedImageURL && (
             <img
@@ -119,8 +122,13 @@ class EditAccount extends React.Component {
             onChange={this.handleChange}
             value={town}
           />
-          <Form.Button type="submit">Submit</Form.Button>
+          <Form.Button type="submit">Submit Changes</Form.Button>
         </Form>
+        {/* </div> */}
+        <div className="actions">
+          <h2>Account Actions</h2>
+          <DeleteUser id={this.props.id} />
+        </div>
       </div>
     );
   }
