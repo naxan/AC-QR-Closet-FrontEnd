@@ -11,6 +11,7 @@ class Login extends React.Component {
     username: "",
     password: "",
     showModal: false,
+    usernameError: false,
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -28,7 +29,12 @@ class Login extends React.Component {
     };
 
     UserAuthAPI.login(user).then((res) => {
-      if (res.status === 200) {
+      if (!res.ok) {
+        this.setState({
+          usernameError: true,
+        });
+      }
+      if (res.ok) {
         this.setState({
           username: "",
           password: "",
@@ -55,7 +61,9 @@ class Login extends React.Component {
               <Form.Input
                 required
                 error={
-                  this.state.usernameError ? "Please enter your username" : null
+                  this.state.usernameError
+                    ? "Username or password is incorrect"
+                    : null
                 }
                 label="Username"
                 placeholder="Username"
