@@ -7,10 +7,22 @@ class Footer extends React.Component {
     return (
       <div className="Footer">
         <p>Thanks for visiting!</p>
-        <p>This website was made by Anna Kempel</p>
-        <Menu.Item href="https://github.com/naxan" target="_blank">
-          <Icon id="github-icon" name="github" />
-        </Menu.Item>
+        <p>
+          Background image supplied by{" "}
+          <a href="https://catwithmonocle.com/">Cat With Monocle</a>. Several
+          vector graphics supplied by{" "}
+          <a href="https://www.vecteezy.com/">Vecteezy</a>.
+        </p>
+        <p>
+          Visit me on Github!{" "}
+          <Menu.Item
+            href="https://github.com/naxan"
+            target="_blank"
+            style={{ display: "inline" }}
+          >
+            <Icon id="github-icon" name="github" />
+          </Menu.Item>
+        </p>
       </div>
     );
   }
