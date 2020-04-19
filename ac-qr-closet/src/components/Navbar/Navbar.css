@@ -56,6 +56,13 @@
   .Navbar .ui.menu .right.menu .burger-menu .menu {
     background-color: #e6ffec;
   }
+  /* Login SignUp burger bar */
+  .Navbar .ui.menu .item .Login .item {
+    color: #658673;
+  }
+  .ui.menu .ui.dropdown .menu.signed-out-menu > .item {
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: 390px) {

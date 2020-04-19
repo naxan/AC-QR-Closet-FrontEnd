@@ -78,6 +78,16 @@ class Navbar extends React.Component {
               <>
                 <Login verifyUser={this.props.verifyUser} />
                 <SignUp verifyUser={this.props.verifyUser} />
+                <Dropdown className="burger-menu" icon="bars">
+                  <Dropdown.Menu className="signed-out-menu">
+                    <Dropdown.Item>
+                      <Login verifyUser={this.props.verifyUser} />
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <SignUp verifyUser={this.props.verifyUser} />
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </>
             )}
           </Menu.Menu>
