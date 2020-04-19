@@ -2,11 +2,21 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 5px;
 }
 
 .UserInfo {
-  width: 60%;
+  /* width: 60%; */
+  max-width: 500px;
   margin: 15px;
+}
+
+.UserInfo img {
+  margin: 10px;
+}
+
+.UserInfo .info-container {
+  margin: 10px;
 }
 
 .UserInfo h2 {

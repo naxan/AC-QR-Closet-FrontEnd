@@ -4,3 +4,7 @@
   align-items: center;
   min-height: 85vh;
 }
+
+.Profile .ui.labeled.icon.button.edit-account-btn {
+  margin-bottom: 30px;
+}

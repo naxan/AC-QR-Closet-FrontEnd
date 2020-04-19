@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
       <Input
         className="SearchBar"
         icon="search"
-        placeholder="Search"
+        placeholder="Search Designs..."
         value={value}
         onChange={this.updateQuery}
       />

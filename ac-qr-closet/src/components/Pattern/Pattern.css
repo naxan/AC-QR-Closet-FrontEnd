@@ -18,3 +18,11 @@
 .ui.card.Pattern:last-child {
   margin: 10px;
 }
+
+.ui.card.Pattern .extra {
+  font-family: sans-serif;
+}
+
+.ui.card.Pattern .content .header {
+  font-family: "Roboto Slab", serif;
+}

@@ -41,8 +41,9 @@
 }
 
 .Home .bubble p {
-  width: 180px;
+  width: 190px;
   text-align: center;
+  font-weight: 600;
 }
 
 .Home .logo {

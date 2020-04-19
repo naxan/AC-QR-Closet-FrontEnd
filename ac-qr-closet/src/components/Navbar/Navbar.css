@@ -2,10 +2,17 @@
   border: none;
   border-radius: 0%;
   background-color: #96c4a9;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.3em;
+}
+
+.Navbar .ui.menu .item {
+  color: #e6ffec;
 }
 
 .Navbar .ui.button {
   background-color: #ffb402;
+  font-family: "Roboto Slab", serif;
 }
 
 .Navbar .ui.button:hover {
@@ -14,4 +21,9 @@
 
 .Navbar .ui.button:focus {
   background-color: #e8a300;
+}
+
+.Navbar .ui.labeled.icon.button {
+  display: flex;
+  align-items: center;
 }

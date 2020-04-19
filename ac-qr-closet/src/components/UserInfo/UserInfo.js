@@ -52,7 +52,7 @@ class UserInfo extends React.Component {
               />
             )}
 
-            <div>
+            <div className="info-container">
               <h2>{this.props.user}</h2>
 
               <p>

@@ -77,7 +77,13 @@ class Profile extends React.Component {
     return (
       <div className="Profile">
         <UserInfo id={this.props.id} user={this.props.user} />
-        <Button as={Link} to="/account" icon labelPosition="left">
+        <Button
+          className="edit-account-btn"
+          as={Link}
+          to="/account"
+          icon
+          labelPosition="left"
+        >
           <Icon name="edit" />
           Edit Your Account
         </Button>

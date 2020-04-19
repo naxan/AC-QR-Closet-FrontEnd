@@ -32,7 +32,7 @@ class Navbar extends React.Component {
           </Menu.Item>
           {this.props.loggedIn && (
             <Button as={Link} to="/newDesign" icon labelPosition="left">
-              <Icon name="plus" />
+              <Icon name="pencil" />
               ADD DESIGN
             </Button>
           )}
