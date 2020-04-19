@@ -5,5 +5,13 @@
 }
 
 .Navbar .ui.button {
-  background-color: #f8af00;
+  background-color: #ffb402;
+}
+
+.Navbar .ui.button:hover {
+  background-color: #e8a300;
+}
+
+.Navbar .ui.button:focus {
+  background-color: #e8a300;
 }
