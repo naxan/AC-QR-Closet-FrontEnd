@@ -27,3 +27,39 @@
   display: flex;
   align-items: center;
 }
+
+.Navbar .ui.menu .right.menu .burger-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #e6ffec;
+  padding: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .Navbar .ui.menu .right.menu .item {
+    display: none;
+  }
+  .Navbar .ui.menu .right.menu .dropdown.burger-menu .item {
+    display: block;
+    /* margin: 25px 10px; */
+  }
+  .Navbar .ui.menu .right.menu .dropdown.burger-menu .item .span {
+    margin: 25px 10px;
+  }
+  .Navbar .ui.menu .ui.dropdown .menu > .item {
+    color: #658673 !important;
+  }
+  .Navbar .ui.menu .right.menu .burger-menu {
+    display: flex;
+  }
+  .Navbar .ui.menu .right.menu .burger-menu .menu {
+    background-color: #e6ffec;
+  }
+}
+
+@media (max-width: 390px) {
+  .Navbar .ui.menu:not(.vertical) .item {
+    display: none;
+  }
+}

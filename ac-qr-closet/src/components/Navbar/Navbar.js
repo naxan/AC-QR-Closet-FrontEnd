@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "../ModalForms/Login/Login";
 import SignUp from "../ModalForms/SignUp/SignUp";
-import { Menu, Button, Icon } from "semantic-ui-react";
+import { Menu, Button, Icon, Dropdown } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import "./Navbar.css";
 
@@ -61,6 +61,17 @@ class Navbar extends React.Component {
                 <Menu.Item name="Log Out" onClick={this.props.handleLogout}>
                   Log Out
                 </Menu.Item>
+                <Dropdown className="burger-menu" icon="bars">
+                  <Dropdown.Menu>
+                    <Dropdown.Item text="Design Library" as={Link} to="/" />
+                    <Dropdown.Item text="Profile" as={Link} to="/profile" />
+                    <Dropdown.Item
+                      text="Log Out"
+                      icon="log out"
+                      onClick={this.props.handleLogout}
+                    />
+                  </Dropdown.Menu>
+                </Dropdown>
               </>
             )}
             {!this.props.loggedIn && (
