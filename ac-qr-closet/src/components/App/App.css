@@ -1,0 +1,13 @@
+.App .banner {
+  background-image: url("../../images/Shop-Banner-Long.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 150px;
+  position: relative;
+  bottom: 1px;
+}
+
+.App {
+  background: url("../../images/ac-new-horizons-leaf-pattern.jpg");
+}

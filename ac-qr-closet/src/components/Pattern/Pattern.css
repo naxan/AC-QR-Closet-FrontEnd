@@ -6,3 +6,15 @@
 .Pattern .ui.card > .extra a:not(.ui) .username {
   color: blue;
 }
+
+.ui.card.Pattern {
+  margin: 10px;
+}
+
+.ui.card.Pattern:first-child {
+  margin: 10px;
+}
+
+.ui.card.Pattern:last-child {
+  margin: 10px;
+}

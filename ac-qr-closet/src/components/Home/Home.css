@@ -5,6 +5,47 @@
   min-height: 85vh;
 }
 
-.Home h1 {
-  margin-top: 10px;
+.Home .welcome-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  margin: 30px;
+}
+
+.Home .laBelle {
+  height: 200px;
+  width: auto;
+  margin: 10px 20px;
+}
+
+.Home .bubble {
+  background: url("../../images/Speech-Bubble.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 350px;
+  width: 400px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Home .bubble h1,
+.Home .bubble p {
+  color: #877866;
+}
+
+.Home .bubble h1 {
+  margin-top: 30px;
+}
+
+.Home .bubble p {
+  width: 180px;
+  text-align: center;
+}
+
+.Home .logo {
+  height: 150px;
+  width: auto;
 }

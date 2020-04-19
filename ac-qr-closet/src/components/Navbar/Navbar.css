@@ -1,0 +1,17 @@
+.Navbar .ui.menu {
+  border: none;
+  border-radius: 0%;
+  background-color: #96c4a9;
+}
+
+.Navbar .ui.button {
+  background-color: #ffb402;
+}
+
+.Navbar .ui.button:hover {
+  background-color: #e8a300;
+}
+
+.Navbar .ui.button:focus {
+  background-color: #e8a300;
+}

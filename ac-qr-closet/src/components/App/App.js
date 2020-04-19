@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "semantic-ui-css/semantic.min.css";
 import { withRouter } from "react-router-dom";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -60,6 +61,7 @@ class App extends React.Component {
           verifyUser={this.verifyUser}
           handleLogout={this.handleLogout}
         />
+        <div className="banner"></div>
         <Routes
           loggedIn={this.state.loggedIn}
           user={this.state.user}
