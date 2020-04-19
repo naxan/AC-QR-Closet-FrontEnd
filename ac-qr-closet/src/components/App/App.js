@@ -61,7 +61,7 @@ class App extends React.Component {
           verifyUser={this.verifyUser}
           handleLogout={this.handleLogout}
         />
-        <div className="test"></div>
+        <div className="banner"></div>
         <Routes
           loggedIn={this.state.loggedIn}
           user={this.state.user}

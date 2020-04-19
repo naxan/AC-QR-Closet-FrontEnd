@@ -1,0 +1,9 @@
+.Navbar .ui.menu {
+  border: none;
+  border-radius: 0%;
+  background-color: #a4d9ba;
+}
+
+.Navbar .ui.button {
+  background-color: #f8af00;
+}
