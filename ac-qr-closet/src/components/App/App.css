@@ -1,0 +1,6 @@
+.App .test {
+  background-image: url("../../images/Shop_Banner-w:Shadow.jpg");
+  width: 100vw;
+  /* height of banner image */
+  height: 204px;
+}

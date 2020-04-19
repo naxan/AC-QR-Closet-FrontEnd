@@ -3,6 +3,7 @@ import Login from "../ModalForms/Login/Login";
 import SignUp from "../ModalForms/SignUp/SignUp";
 import { Menu, Button, Icon } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
+import "./Navbar.css";
 
 // --- PROPS RECEIVED ---
 // APP:
