@@ -1,6 +1,11 @@
 .App .test {
-  background-image: url("../../images/Shop_Banner-w:Shadow.jpg");
+  background-image: url("../../images/Shop-Banner-Long.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100vw;
-  /* height of banner image */
-  height: 204px;
+  height: 150px;
+}
+
+.App {
+  background: url("../../images/ac-new-horizons-leaf-pattern.jpg");
 }
