@@ -2,6 +2,8 @@
 
 Wish to find Animal Crossing custom designs or to share your own? LaBelle Boutique is a fan-made site hosting a library of user-created Animal Crossing patterns. Search for your favorite pattern by title on the home page, or log in and share your own!
 
+<img src="./README-images/screenshots/Home.png">
+
 ---
 
 ## Technologies Used
