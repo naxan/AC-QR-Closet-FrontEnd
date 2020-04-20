@@ -1,5 +1,7 @@
 # LaBelle Boutique
 
+Wish to find Animal Crossing custom designs or to share your own? LaBelle Boutique is a fan-made site hosting a library of user-created Animal Crossing patterns. Search for your favorite pattern by title on the home page, or log in and share your own!
+
 ---
 
 ## Technologies Used
@@ -39,14 +41,41 @@ A user should be able to...
 
 ## Wireframes
 
-### Home Page
+### Initial Wireframes
+
+#### Home Page
 
 <img src="./README-images/wireframes/Home.png">
 
-### Profile Page
+#### Profile Page
 
 <img src="./README-images/wireframes/Profile.png">
 
-## Entity Relationship Diagrams
+### Styles Wireframe
 
-## Future Features and Known Bugs
+<img src="./README-images/wireframes/Home-Style-Wireframe.png">
+
+---
+
+## Entity Relationship Diagram
+
+<img src="./README-images/ERD/ACQR">
+
+---
+
+## Future Features and Bugs to be Fixed
+
+### Future Features
+
+- Allow users to favorite designs and view favorite designs on profile
+- Make profiles public w/ ability to search for users
+- Ability to add tags to design posts and filter search by tags
+- Navigation bar with categories of design types (ie hats, tops, tile)
+- Infinite scrolling
+- Cropping profile images
+
+### Bugs to be Fixed
+
+- Embedded data (images and posts) is not deleted on parent data deletion
+- Pattern author links currently do nothing as public profiles have not been created yet
+- Pattern Edit form Image input needs to be updated to an image upload button instead of an image url field
