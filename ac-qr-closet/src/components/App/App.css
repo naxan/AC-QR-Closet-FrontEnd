@@ -1,9 +1,9 @@
 .App .banner {
-  background-image: url("../../images/Shop-Banner-Long.png");
+  background-image: url("../../images/Banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
-  height: 150px;
+  height: 110px;
   position: relative;
   bottom: 1px;
 }

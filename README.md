@@ -83,3 +83,4 @@ A user should be able to...
 - ALL patterns are shown on the home page. This needs to be filtered into manageable chunks of limited number rather than all at once
 - Pattern author links currently do nothing as public profiles have not been created yet
 - Pattern Edit form Image input needs to be updated to an image upload button instead of an image url field
+- Images of patterns are hard to see! I wish to make them larger
