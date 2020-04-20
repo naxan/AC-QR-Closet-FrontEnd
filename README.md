@@ -59,7 +59,7 @@ A user should be able to...
 
 ## Entity Relationship Diagram
 
-<img src="./README-images/ERD/ACQR">
+<img src="./README-images/ERD/ACQR-ERD.png">
 
 ---
 
