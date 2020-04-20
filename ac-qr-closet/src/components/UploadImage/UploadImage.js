@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import "./UploadImage.css";
 
+const endpoint = "http://localhost:4000";
+
 class UploadImage extends React.Component {
   state = {
     uploadedImage: null,
@@ -27,7 +29,7 @@ class UploadImage extends React.Component {
     imageFormObj.append("imageName", "image-" + Date.now());
     imageFormObj.append("imageData", this.state.uploadedImage);
 
-    fetch("http://localhost:4000/image/upload", {
+    fetch(`${endpoint}/image/upload`, {
       method: "POST",
       body: imageFormObj,
     })

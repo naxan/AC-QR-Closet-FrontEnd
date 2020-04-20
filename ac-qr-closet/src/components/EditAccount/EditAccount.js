@@ -9,13 +9,15 @@ import DeleteUser from "../ModalForms/DeleteUser/DeleteUser";
 // APP
 // id, user
 
+const endpoint = "http://localhost:4000";
+
 class EditAccount extends React.Component {
   state = {
     username: "",
     authorCode: "",
     town: "",
     uploadedImage: null,
-    uploadedImageURL: "http://localhost:4000/uploads/default.jpg",
+    uploadedImageURL: `${endpoint}/uploads/default.jpg`,
     imageError: false,
     usernameError: "",
   };
@@ -39,7 +41,7 @@ class EditAccount extends React.Component {
         let imageFormObj = new FormData();
         imageFormObj.append("imageName", "image-" + Date.now());
         imageFormObj.append("imageData", this.state.uploadedImage);
-        fetch("http://localhost:4000/image/upload", {
+        fetch(`${endpoint}/image/upload`, {
           method: "POST",
           body: imageFormObj,
         })
@@ -84,7 +86,7 @@ class EditAccount extends React.Component {
             let imageFormObj = new FormData();
             imageFormObj.append("imageName", "image-" + Date.now());
             imageFormObj.append("imageData", this.state.uploadedImage);
-            fetch("http://localhost:4000/image/upload", {
+            fetch(`${endpoint}/image/upload`, {
               method: "POST",
               body: imageFormObj,
             })
@@ -129,7 +131,7 @@ class EditAccount extends React.Component {
           username: res.username,
           authorCode: res.authorCode,
           town: res.town,
-          uploadedImageURL: "http://localhost:4000/" + res.profilePic.imageData,
+          uploadedImageURL: endpoint + "/" + res.profilePic.imageData,
         });
       } else {
         this.setState({

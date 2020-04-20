@@ -9,13 +9,14 @@ import { withRouter } from "react-router-dom";
 // APP
 // id
 
+const endpoint = "http://localhost:4000";
 class CreatePattern extends React.Component {
   state = {
     title: "",
     description: "",
     textCode: "",
     uploadedImage: null,
-    uploadedImageURL: "http://localhost:4000/uploads/default.jpg",
+    uploadedImageURL: `${endpoint}/uploads/default.jpg`,
   };
 
   handleFileSelect = (e) => {
@@ -34,7 +35,7 @@ class CreatePattern extends React.Component {
     imageFormObj.append("imageName", "image-" + Date.now());
     imageFormObj.append("imageData", this.state.uploadedImage);
 
-    fetch("http://localhost:4000/image/upload", {
+    fetch(`${endpoint}/image/upload`, {
       method: "POST",
       body: imageFormObj,
     })

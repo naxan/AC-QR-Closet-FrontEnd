@@ -7,6 +7,8 @@ import UserAPI from "../../api/UserAPI";
 // PROFILE:
 // user, id
 
+const endpoint = "http://localhost:4000";
+
 class UserInfo extends React.Component {
   state = {
     town: "",
@@ -45,7 +47,7 @@ class UserInfo extends React.Component {
             )}
             {this.state.profilePic && (
               <Image
-                src={"http://localhost:4000/" + this.state.profilePic.imageData}
+                src={endpoint + "/" + this.state.profilePic.imageData}
                 size="small"
                 circular
                 inline={true}

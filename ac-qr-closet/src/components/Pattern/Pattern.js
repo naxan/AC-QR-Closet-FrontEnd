@@ -8,6 +8,7 @@ import DeletePattern from "../ModalForms/DeletePattern/DeletePattern";
 // PATTERNCONTAINER:
 // pattern object, userOwned
 
+const endpoint = "http://localhost:4000";
 class Pattern extends React.Component {
   state = {
     showDeleteModal: false,
@@ -47,7 +48,7 @@ class Pattern extends React.Component {
     return (
       <Card className="Pattern">
         <Image
-          src={"http://localhost:4000/" + pattern.image.imageData}
+          src={endpoint + "/" + pattern.image.imageData}
           wrapped
           ui={false}
         />
