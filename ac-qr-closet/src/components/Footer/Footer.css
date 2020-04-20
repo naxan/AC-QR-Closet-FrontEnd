@@ -6,11 +6,23 @@
   align-items: center;
   justify-content: center;
   min-height: 15vh;
+}
+
+.content-container {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: #e6ffec;
+  margin: 30px;
 }
 
 .Footer p {
   margin: 2px;
+  text-align: center;
+  margin: 5px 0;
 }
 
 #github-icon {
