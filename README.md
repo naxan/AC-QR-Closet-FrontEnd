@@ -79,5 +79,7 @@ A user should be able to...
 ### Bugs to be Fixed
 
 - Embedded data (images and posts) is not deleted on parent data deletion
+- Active navbar elements will carry over on page redirects, even if the page is not correct
+- ALL patterns are shown on the home page. This needs to be filtered into manageable chunks of limited number rather than all at once
 - Pattern author links currently do nothing as public profiles have not been created yet
 - Pattern Edit form Image input needs to be updated to an image upload button instead of an image url field
