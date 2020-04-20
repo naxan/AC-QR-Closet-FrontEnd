@@ -39,7 +39,7 @@ class UserInfo extends React.Component {
           <div className="flex-container">
             {!this.state.profilePic && (
               <Image
-                src="https://react.semantic-ui.com/images/wireframe/square-image.pn"
+                src={`${endpoint}/uploads/default.jpg`}
                 size="small"
                 circular
                 inline={true}
